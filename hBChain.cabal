@@ -1,0 +1,75 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.1.
+--
+-- see: https://github.com/sol/hpack
+
+name:           hBChain
+version:        0.1.0.0
+description:    Please see the README on GitHub at <kienle371999/simple-haskell-blockchain#readme>
+homepage:       https://github.com/kienle371999/simple-haskell-blockchain#readme
+bug-reports:    https://github.com/kienle371999/simple-haskell-blockchain/issues
+author:         Kien Le
+maintainer:     kienle371999@gmail.com
+copyright:      2024 Kien Le
+license:        MIT
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/kienle371999/simple-haskell-blockchain
+
+library
+  exposed-modules:
+      Blockchain
+      BlockHeader
+      Lib
+      Transaction
+  other-modules:
+      Paths_hBChain
+  hs-source-dirs:
+      src
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , cryptonite
+    , hspec
+  default-language: Haskell2010
+
+executable hBChain-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_hBChain
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , cryptonite
+    , hBChain
+    , hspec
+  default-language: Haskell2010
+
+test-suite hBChain-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_hBChain
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , cryptonite
+    , hBChain
+    , hspec
+  default-language: Haskell2010

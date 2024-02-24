@@ -1,0 +1,52 @@
+name:                hBChain
+version:             0.1.0.0
+github:              "kienle371999/simple-haskell-blockchain"
+license:             MIT
+author:              "Kien Le"
+maintainer:          "kienle371999@gmail.com"
+copyright:           "2024 Kien Le"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <kienle371999/simple-haskell-blockchain#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- hspec
+- aeson
+- cryptonite
+- bytestring
+ 
+library:
+  source-dirs: src
+
+executables:
+  hBChain-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hBChain
+
+tests:
+  hBChain-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - hBChain
